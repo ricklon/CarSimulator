@@ -23,8 +23,8 @@ function OnTriggerExit()
 
 function UpdateVisibility()
 {
-	nearWaterObject.renderer.enabled = near;
-	farWaterObject.renderer.enabled = !near;
+	nearWaterObject.GetComponent.<Renderer>().enabled = near;
+	farWaterObject.GetComponent.<Renderer>().enabled = !near;
 }
 	
 	

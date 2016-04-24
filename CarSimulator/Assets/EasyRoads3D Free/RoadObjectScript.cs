@@ -215,7 +215,7 @@ foreach(Terrain terrain in terrains) {
 Terrains t = new Terrains();
 t.terrain = terrain;
 if(!terrain.gameObject.GetComponent<EasyRoads3DTerrainID>()){
-EasyRoads3DTerrainID terrainscript = (EasyRoads3DTerrainID)terrain.gameObject.AddComponent("EasyRoads3DTerrainID");
+EasyRoads3DTerrainID terrainscript = (EasyRoads3DTerrainID)terrain.gameObject.AddComponent<EasyRoads3DTerrainID>();
 string id = UnityEngine.Random.Range(100000000,999999999).ToString();
 terrainscript.terrainid = id;
 t.id = id;
@@ -542,13 +542,13 @@ OQCQCCOCOQ();
 }
 if(displayRoad && objectType < 2){
 Material mat = (Material)Resources.Load("roadMaterial", typeof(Material));
-if(OCDQDOOOCO.road.renderer != null){
+if(OCDQDOOOCO.road.GetComponent<Renderer>() != null){
 
-OCDQDOOOCO.road.renderer.material = mat;
+OCDQDOOOCO.road.GetComponent<Renderer>().material = mat;
 }
 foreach(Transform t in OCDQDOOOCO.road.transform){
-if(t.gameObject.renderer != null){
-t.gameObject.renderer.material = mat;
+if(t.gameObject.GetComponent<Renderer>() != null){
+t.gameObject.GetComponent<Renderer>().material = mat;
 }
 }
 OCDQDOOOCO.road.transform.parent = null;

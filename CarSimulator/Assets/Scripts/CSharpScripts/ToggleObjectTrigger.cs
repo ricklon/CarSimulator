@@ -5,16 +5,16 @@ public class ToggleObjectTrigger : MonoBehaviour
 {
 	void Awake()
 	{
-		renderer.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 	}
 
 	void OnTriggerEnter()
 	{
-		renderer.enabled = true;
+		GetComponent<Renderer>().enabled = true;
 	}
 	
 	void OnTriggerExit()
 	{
-		renderer.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 	}
 }

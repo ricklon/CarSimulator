@@ -193,7 +193,7 @@ function DoTweaks()
 		var bumpedObjects : GameObject[] = GameObject.FindGameObjectsWithTag("Bumped");
 		for(var i : int = 0; i < bumpedObjects.length; i++)
 		{
-			bumpedObjects[i].renderer.material.shader = sh;
+			bumpedObjects[i].GetComponent.<Renderer>().material.shader = sh;
 		}
 	}
 }

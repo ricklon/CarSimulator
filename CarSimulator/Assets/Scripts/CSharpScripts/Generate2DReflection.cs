@@ -52,7 +52,7 @@ public class Generate2DReflection : MonoBehaviour
 		{
 			GameObject go = new GameObject("CubemapCamera", typeof(Camera));
 			go.hideFlags = HideFlags.HideAndDontSave;
-			cam = go.camera;
+			cam = go.GetComponent<Camera>();
 			// cam.nearClipPlane = 0.05f;
 			cam.farClipPlane = 150f;
 			cam.enabled = false;

@@ -103,7 +103,7 @@ public class Drivetrain : MonoBehaviour {
 			engineAngularVelo += engineAngularAcceleration * Time.deltaTime;
 			
 			// Apply torque to car body
-			rigidbody.AddTorque(-engineOrientation * engineTorque);
+			GetComponent<Rigidbody>().AddTorque(-engineOrientation * engineTorque);
 		}
 		else
 		{

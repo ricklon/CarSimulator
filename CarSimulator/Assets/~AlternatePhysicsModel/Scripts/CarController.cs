@@ -87,8 +87,8 @@ public class CarController : MonoBehaviour {
 	void Start () 
 	{
 		if (centerOfMass != null)
-			rigidbody.centerOfMass = centerOfMass.localPosition;
-		rigidbody.inertiaTensor *= inertiaFactor;
+			GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
+		GetComponent<Rigidbody>().inertiaTensor *= inertiaFactor;
 		drivetrain = GetComponent (typeof (Drivetrain)) as Drivetrain;
 	}
 	
@@ -96,8 +96,8 @@ public class CarController : MonoBehaviour {
 	{
 		// Steering
 		Vector3 carDir = transform.forward;
-		float fVelo = rigidbody.velocity.magnitude;
-		Vector3 veloDir = rigidbody.velocity * (1/fVelo);
+		float fVelo = GetComponent<Rigidbody>().velocity.magnitude;
+		Vector3 veloDir = GetComponent<Rigidbody>().velocity * (1/fVelo);
 		float angle = -Mathf.Asin(Mathf.Clamp( Vector3.Cross(veloDir, carDir).y, -1, 1));
 		float optimalSteering = angle / (wheels[0].maxSteeringAngle * Mathf.Deg2Rad);
 		if (fVelo < 1)
@@ -217,7 +217,7 @@ public class CarController : MonoBehaviour {
 	// Debug GUI. Disable when not needed.
 	void OnGUI ()
 	{
-		GUI.Label (new Rect(0,60,100,200),"km/h: "+rigidbody.velocity.magnitude * 3.6f);
+		GUI.Label (new Rect(0,60,100,200),"km/h: "+GetComponent<Rigidbody>().velocity.magnitude * 3.6f);
 		tractionControl = GUI.Toggle(new Rect(0,80,300,20), tractionControl, "Traction Control (bypassed by shift key)");
 	}
 }

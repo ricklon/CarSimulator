@@ -106,7 +106,7 @@ public class MeshCombineUtility {
 		foreach( MeshInstance combine in combines )
 		{
 			if (combine.mesh)
-				Copy(combine.mesh.vertexCount, combine.mesh.uv1, uv1, ref offset);
+				Copy(combine.mesh.vertexCount, combine.mesh.uv2, uv1, ref offset);
 		}
 		
 		int triangleOffset=0;
@@ -161,7 +161,7 @@ public class MeshCombineUtility {
 		mesh.vertices = vertices;
 		mesh.normals = normals;
 		mesh.uv = uv;
-		mesh.uv1 = uv1;
+		mesh.uv2 = uv1;
 		mesh.tangents = tangents;
 		if (generateStrips)
 			mesh.SetTriangleStrip(strip, 0);

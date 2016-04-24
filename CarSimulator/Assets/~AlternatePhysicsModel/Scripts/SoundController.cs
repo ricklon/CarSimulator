@@ -21,11 +21,11 @@ public class SoundController : MonoBehaviour {
 		go.transform.localPosition = Vector3.zero;
 		go.transform.localRotation = Quaternion.identity;
 		go.AddComponent(typeof(AudioSource));
-		go.audio.clip = clip;
-		go.audio.loop = true;
-		go.audio.volume = 0;
-		go.audio.Play();
-		return go.audio;
+		go.GetComponent<AudioSource>().clip = clip;
+		go.GetComponent<AudioSource>().loop = true;
+		go.GetComponent<AudioSource>().volume = 0;
+		go.GetComponent<AudioSource>().Play();
+		return go.GetComponent<AudioSource>();
 	}
 	
 	void Start () {

@@ -28,13 +28,13 @@ public class TractionHelper : MonoBehaviour {
 	
 	void Update () {
 		Vector3 driveDir = transform.forward;
-		Vector3 veloDir = rigidbody.velocity;
+		Vector3 veloDir = GetComponent<Rigidbody>().velocity;
 		veloDir -= transform.up * Vector3.Dot(veloDir, transform.up);
 		veloDir.Normalize();
 		
 		angle = -Mathf.Asin(Vector3.Dot(Vector3.Cross(driveDir, veloDir), transform.up));
 		
-		angularVelo = rigidbody.angularVelocity.y;
+		angularVelo = GetComponent<Rigidbody>().angularVelocity.y;
 				
 		foreach( Wheel w in front)
 		{

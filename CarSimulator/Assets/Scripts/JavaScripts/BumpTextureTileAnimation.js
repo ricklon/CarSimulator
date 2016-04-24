@@ -6,7 +6,7 @@ private var initTiling : Vector2 = Vector2.zero;
 
 function Start()
 {
-	initTiling = renderer.material.GetTextureScale ("_BumpMap");
+	initTiling = GetComponent.<Renderer>().material.GetTextureScale ("_BumpMap");
 }
 
 function Update()
@@ -22,6 +22,6 @@ function Update()
 	var offset : Vector2 = new Vector2 (uIndex * size.x, 1.0 - size.y - vIndex * size.y);
 	
 	size = Vector2.Scale(size, initTiling);
-	renderer.material.SetTextureOffset ("_BumpMap", offset);
-	renderer.material.SetTextureScale ("_BumpMap", size);
+	GetComponent.<Renderer>().material.SetTextureOffset ("_BumpMap", offset);
+	GetComponent.<Renderer>().material.SetTextureScale ("_BumpMap", size);
 }

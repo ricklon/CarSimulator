@@ -11,13 +11,13 @@ public class AerodynamicResistance : MonoBehaviour {
 
 	void Update () {
 		// Velocity in local space.
-		Vector3 localVelo = transform.InverseTransformDirection(rigidbody.velocity);
+		Vector3 localVelo = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
 		
 		// Strip signs.
 		Vector3 absLocalVelo = new Vector3( Mathf.Abs(localVelo.x), Mathf.Abs(localVelo.y), Mathf.Abs(localVelo.z));
 		
 		// Calculate and apply aerodynamic force.
 		Vector3 airResistance = Vector3.Scale( Vector3.Scale(localVelo, absLocalVelo), -2*coefficients);
-		rigidbody.AddForce( transform.TransformDirection( airResistance ) );
+		GetComponent<Rigidbody>().AddForce( transform.TransformDirection( airResistance ) );
 	}
 }

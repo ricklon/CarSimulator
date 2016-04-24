@@ -14,10 +14,10 @@ public class Wing : MonoBehaviour {
 	// Get rigidbody.
 	void Start () {
 		Transform trs = transform;
-		while (trs != null && trs.rigidbody == null)
+		while (trs != null && trs.GetComponent<Rigidbody>() == null)
 			trs = trs.parent;
 		if (trs != null)
-			body = trs.rigidbody;
+			body = trs.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
