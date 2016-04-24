@@ -1,0 +1,13 @@
+*.tmproj
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.userprefs
+
+.DS_Store
+Library
+Library/*
+Temp
